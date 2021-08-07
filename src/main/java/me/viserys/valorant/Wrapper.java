@@ -74,7 +74,7 @@ public class Wrapper {
 
 
     public String getRankImage(String name) {
-        String image = "";
+        String image;
         switch (name) {
             case "Unrated":
                 image = "https://upload.kabasakalonline.com/kabasakal/ilan/2021-04/unranked-hesap-717620-2021-04-24-18-1.png";
@@ -139,12 +139,14 @@ public class Wrapper {
             case "Radiant":
                 image = "https://static.wikia.nocookie.net/valorant/images/2/24/TX_CompetitiveTier_Large_24.png/revision/latest/scale-to-width-down/256?cb=20200623203621";
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + name);
         }
         return image;
     }
 
     public String getRankEmoji(String name) {
-        String emoji = "";
+        String emoji;
         switch (name) {
             case "Unrated":
                 emoji = "<:unrated:869675118308262040>";
@@ -209,12 +211,14 @@ public class Wrapper {
             case "Radiant":
                 emoji = "<:radiant:869675819126128660>";
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + name);
         }
         return emoji;
     }
 
     public String getAgentEmoji(String name) {
-        String emoji = "";
+        String emoji;
         switch (name) {
             case "Astra":
                 emoji = "<:astra:871372532278767619>";
@@ -264,6 +268,8 @@ public class Wrapper {
             case "Killjoy":
                 emoji = "<:killjoy:871372539677532200>";
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + name);
         }
         return emoji;
     }
