@@ -68,7 +68,7 @@ public class Matches implements VelenEvent {
                 List<PlayerInfo> redList = new ArrayList<>();
                 List<PlayerInfo> blueList = new ArrayList<>();
                 for (int j = 0; j < all_players.size(); j++) {
-                    String name = all_players.get(j).getAsJsonObject().get("name").getAsString();
+                    String name = all_players.get(j).getAsJsonObject().get("name").getAsString() + "#" + all_players.get(j).getAsJsonObject().get("tag").getAsString();
                     String characterEmoji = Tracker.getInstance().getWrapper().getAgentEmoji(all_players.get(j).getAsJsonObject().get("character").getAsString());
                     String rank = Tracker.getInstance().getWrapper().getRankEmoji(all_players.get(j).getAsJsonObject().get("currenttier_patched").getAsString());
                     int score = all_players.get(j).getAsJsonObject().get("stats").getAsJsonObject().get("score").getAsInt();
@@ -77,7 +77,7 @@ public class Matches implements VelenEvent {
                     int assists = all_players.get(j).getAsJsonObject().get("stats").getAsJsonObject().get("assists").getAsInt();
 
                     if (account.get("puuid").getAsString().contains(all_players.get(j).getAsJsonObject().get("puuid").getAsString())) {
-                        name = "**" + all_players.get(j).getAsJsonObject().get("name").getAsString() + "**";
+                        name = "**" + all_players.get(j).getAsJsonObject().get("name").getAsString() + "**" + "#" + all_players.get(j).getAsJsonObject().get("tag").getAsString();
                         character = all_players.get(j).getAsJsonObject().get("character").getAsString();
                     }
 
